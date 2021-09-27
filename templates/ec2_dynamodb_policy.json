@@ -1,0 +1,41 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "ssm:GetParameter",
+        "ssm:GetParameters"
+      ],
+      "Resource": "arn:aws:ssm:*:${account_id}:parameter/*",
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "logs:DescribeLogStreams",
+        "rds:DescribeDBClusters",
+        "rds:DescribeDBInstances",
+        "ec2:DescribeInstances",
+        "ec2:ModifyInstanceAttribute",
+        "ec2:DescribeRegions",
+        "cloudwatch:PutMetricData",
+        "ssm:DescribeMaintenanceWindows",
+        "tag:GetResources"
+      ],
+      "Resource": "*",
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:PutRetentionPolicy"
+      ],
+      "Resource": [
+        "arn:aws:logs:${region}:${account_id}:log-group:/aws/lambda/*",
+        "arn:aws:logs:${region}:${account_id}:log-group:${name}-scheduler-logs:*"
+      ],
+      "Effect": "Allow"
+    }
+  ]
+}
