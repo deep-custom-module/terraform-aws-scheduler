@@ -4,6 +4,11 @@ variable "name" {
   description = "Solution name, e.g. 'app' or 'jenkins'"
 }
 
+variable "tags" {
+  type        = map(string)
+  description = "A map of tags to assign to the object"
+}
+
 variable "timeouts" {
   type = map(string)
   default = {

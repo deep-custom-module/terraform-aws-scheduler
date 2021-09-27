@@ -3,6 +3,7 @@ resource "aws_kms_key" "instance_scheduler_key" {
   policy              = data.template_file.kms_key_policy.rendered
   is_enabled          = true
   enable_key_rotation = true
+  tags = var.tags
 }
 
 data "template_file" "kms_key_policy" {

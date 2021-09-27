@@ -49,6 +49,7 @@ resource "aws_lambda_function" "instance_scheduler_main" {
   tracing_config {
     mode = "Active"
   }
+  tags = var.tags
   depends_on = [aws_iam_role.scheduler_role]
 }
 

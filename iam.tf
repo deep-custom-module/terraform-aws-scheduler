@@ -1,5 +1,6 @@
 resource "aws_iam_role" "instance_scheduler_lambda_service_role" {
   assume_role_policy = data.template_file.iam_assume_role_policy_document.rendered
+  tags = var.tags
 }
 
 data "template_file" "iam_assume_role_policy_document" {
