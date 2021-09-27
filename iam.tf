@@ -28,6 +28,7 @@ resource "aws_iam_policy" "iam_role_lambda_function_service_policy" {
 #scheduler role
 resource "aws_iam_role" "scheduler_role" {
   assume_role_policy = data.template_file.iam_assume_role_policy_scheduler_role.rendered
+  tags = var.tags
 }
 
 data "template_file" "iam_assume_role_policy_scheduler_role" {
