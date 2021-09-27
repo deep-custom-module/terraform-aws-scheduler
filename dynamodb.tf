@@ -2,24 +2,24 @@ locals {
   regions = [data.aws_region.current.name]
 
   periods = toset(flatten([
-  for period_name, period in var.periods : {
-    name = period_name
-    description = try(period.description,false) == false ? jsonencode({"NULL" = true}) : jsonencode({"S" = period.description})
-    begintime = try(period.begintime,false) == false ? jsonencode({"NULL" = true}) : jsonencode({"S" = period.begintime})
-    endtime = try(period.endtime,false) == false ? jsonencode({"NULL" = true}) : jsonencode({"S" = period.endtime})
-    weekdays = period.weekdays
-  }
+    for period_name, period in var.periods : {
+      name        = period_name
+      description = try(period.description, false) == false ? jsonencode({ "NULL" = true }) : jsonencode({ "S" = period.description })
+      begintime   = try(period.begintime, false) == false ? jsonencode({ "NULL" = true }) : jsonencode({ "S" = period.begintime })
+      endtime     = try(period.endtime, false) == false ? jsonencode({ "NULL" = true }) : jsonencode({ "S" = period.endtime })
+      weekdays    = period.weekdays
+    }
   ]))
 
   schedules = toset(flatten([
-  for schedule_name, schedule in var.schedules : {
-    name = schedule_name
-    override_status = try(schedule.override_status,false) == false ? jsonencode({"NULL" = true}) : jsonencode({"S" = schedule.override_status})
-    description = try(schedule.description,false) == false ? jsonencode({"NULL" = true}) : jsonencode({"S" = schedule.description})
-    timezone = try(schedule.timezone,false) == false ? jsonencode({"NULL" = true}) : jsonencode({"S" = schedule.timezone})
-    use_metrics = try(schedule.use_metrics,false) == false ? jsonencode({"NULL" = true}) : jsonencode({"BOOL" = schedule.use_metrics})
-    periods = schedule.periods
-  }
+    for schedule_name, schedule in var.schedules : {
+      name            = schedule_name
+      override_status = try(schedule.override_status, false) == false ? jsonencode({ "NULL" = true }) : jsonencode({ "S" = schedule.override_status })
+      description     = try(schedule.description, false) == false ? jsonencode({ "NULL" = true }) : jsonencode({ "S" = schedule.description })
+      timezone        = try(schedule.timezone, false) == false ? jsonencode({ "NULL" = true }) : jsonencode({ "S" = schedule.timezone })
+      use_metrics     = try(schedule.use_metrics, false) == false ? jsonencode({ "NULL" = true }) : jsonencode({ "BOOL" = schedule.use_metrics })
+      periods         = schedule.periods
+    }
   ]))
 }
 
@@ -98,7 +98,7 @@ resource "aws_dynamodb_table" "maintenance_table" {
 #definition of config
 resource "aws_dynamodb_table_item" "config_initialization" {
   table_name = aws_dynamodb_table.config_table.name
-  range_key = aws_dynamodb_table.config_table.range_key
+  range_key  = aws_dynamodb_table.config_table.range_key
   hash_key   = aws_dynamodb_table.config_table.hash_key
 
   item = <<ITEM
@@ -107,7 +107,7 @@ resource "aws_dynamodb_table_item" "config_initialization" {
   "name": {"S": "scheduler"},
   "enable_SSM_maintenance_windows": {"BOOL": ${var.enable_ssm_maintenance_windows}},
   "regions": {"SS": ${jsonencode(local.regions)}},
-  "scheduled_services": {"SS": ${jsonencode(["ec2","rds"])}},
+  "scheduled_services": {"SS": ${jsonencode(["ec2", "rds"])}},
   "stopped_tags": {"S": "${var.stopped_tags}"},
   "create_rds_snapshot": {"BOOL": ${var.create_rds_snapshot}},
   "default_timezone": {"S": "${var.default_timezone}"},
@@ -124,11 +124,11 @@ ITEM
 #definition of periods
 resource "aws_dynamodb_table_item" "periods" {
   for_each = {
-  for period in local.periods : period.name => period
+    for period in local.periods : period.name => period
   }
 
   table_name = aws_dynamodb_table.config_table.name
-  range_key = aws_dynamodb_table.config_table.range_key
+  range_key  = aws_dynamodb_table.config_table.range_key
   hash_key   = aws_dynamodb_table.config_table.hash_key
 
   item = <<PERIOD
@@ -147,10 +147,10 @@ PERIOD
 #definition of schedules
 resource "aws_dynamodb_table_item" "schedules" {
   for_each = {
-  for schedule in local.schedules : schedule.name => schedule
+    for schedule in local.schedules : schedule.name => schedule
   }
   table_name = aws_dynamodb_table.config_table.name
-  range_key = aws_dynamodb_table.config_table.range_key
+  range_key  = aws_dynamodb_table.config_table.range_key
   hash_key   = aws_dynamodb_table.config_table.hash_key
 
   item = <<SCHEDULE
