@@ -71,6 +71,10 @@ resource "aws_dynamodb_table" "config_table" {
     kms_key_arn = aws_kms_key.instance_scheduler_key.arn
   }
   tags = var.tags
+
+  provisioner "local-exec" {
+    command = "aws dynamodb batch-write-item --request-items file://items.json --region ${data.terraform_remote_state.app-baseline.outputs.region}"
+  }
 }
 
 resource "aws_dynamodb_table" "maintenance_table" {

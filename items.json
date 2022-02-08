@@ -1,0 +1,76 @@
+{
+    "ConfigTable": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "UserId": {
+                        "S": "A"
+                    },
+                    "Title": {
+                        "S": "Principal Engineer"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "UserId": {
+                        "S": "E"
+                    },
+                    "Title": {
+                        "S": "Senior Engineer"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "UserId": {
+                        "S": "I"
+                    },
+                    "Title": {
+                        "S": "Mid Level Engineer"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "UserId": {
+                        "S": "O"
+                    },
+                    "Title": {
+                        "S": "Lead Engineer"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "UserId": {
+                        "S": "U"
+                    },
+                    "Title": {
+                        "S": "Associate Engineer"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "UserId": {
+                        "S": "Y"
+                    },
+                    "Title": {
+                        "S": "Half-Present Intern"
+                    }
+                }
+            }
+        }
+    ]
+}
