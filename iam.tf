@@ -1,8 +1,3 @@
-resource "aws_iam_role" "instance_scheduler_lambda_service_role" {
-  assume_role_policy = data.template_file.iam_assume_role_policy_document.rendered
-  tags = var.tags
-}
-
 data "template_file" "iam_assume_role_policy_document" {
   template = file("${path.module}/templates/iam_role_lambda_assume.json")
 }
@@ -15,29 +10,11 @@ data "template_file" "iam_role_lambda_function_service_policy_template" {
   }
 }
 
-resource "aws_iam_role_policy_attachment" "iam_role_lambda_function_service_policy_attach" {
-  policy_arn = aws_iam_policy.iam_role_lambda_function_service_policy.arn
-  role       = aws_iam_role.instance_scheduler_lambda_service_role.name
-}
-
-resource "aws_iam_policy" "iam_role_lambda_function_service_policy" {
-  name   = "iam_role_lambda_function_service_policy"
-  policy = data.template_file.iam_role_lambda_function_service_policy_template.rendered
-}
-
-#scheduler role
-resource "aws_iam_role" "scheduler_role" {
-  assume_role_policy = data.template_file.iam_assume_role_policy_scheduler_role.rendered
-  tags = var.tags
-}
-
-data "template_file" "iam_assume_role_policy_scheduler_role" {
-  template = file("${path.module}/templates/iam_role_policy_scheduler_role.json")
-}
-
-resource "aws_iam_policy" "iam_role_scheduler_ec2_dynamodb_policy" {
-  policy = data.template_file.iam_role_scheduler_ec2_dynamodb_policy_template.rendered
-  name   = "iam_role_scheduler_ec2_dynamodb_policy"
+data "template_file" "iam_role_rds_scheduler_policy_template" {
+  template = file("${path.module}/templates/rds_scheduler_policy.json")
+  vars = {
+    account_id = data.aws_caller_identity.current.account_id
+  }
 }
 
 data "template_file" "iam_role_scheduler_ec2_dynamodb_policy_template" {
@@ -47,17 +24,6 @@ data "template_file" "iam_role_scheduler_ec2_dynamodb_policy_template" {
     account_id = data.aws_caller_identity.current.account_id
     name       = var.name
   }
-}
-
-resource "aws_iam_role_policy_attachment" "iam_role_scheduler_ec2_dynamodb_policy_attach" {
-  policy_arn = aws_iam_policy.iam_role_scheduler_ec2_dynamodb_policy.arn
-  role       = aws_iam_role.scheduler_role.name
-}
-
-#scheduler policy
-resource "aws_iam_policy" "iam_role_scheduler_policy" {
-  policy = data.template_file.iam_role_scheduler_policy_template.rendered
-  name   = "iam_role_scheduler_policy"
 }
 
 data "template_file" "iam_role_scheduler_policy_template" {
@@ -75,6 +41,48 @@ data "template_file" "iam_role_scheduler_policy_template" {
   }
 }
 
+data "template_file" "iam_assume_role_policy_scheduler_role" {
+  template = file("${path.module}/templates/iam_role_policy_scheduler_role.json")
+}
+
+resource "aws_iam_role" "instance_scheduler_lambda_service_role" {
+  assume_role_policy = data.template_file.iam_assume_role_policy_document.rendered
+  tags               = var.tags
+}
+
+resource "aws_iam_role_policy_attachment" "iam_role_lambda_function_service_policy_attach" {
+  policy_arn = aws_iam_policy.iam_role_lambda_function_service_policy.arn
+  role       = aws_iam_role.instance_scheduler_lambda_service_role.name
+}
+
+resource "aws_iam_policy" "iam_role_lambda_function_service_policy" {
+  name   = "iam_role_scheduler_lambda_function_service_policy"
+  policy = data.template_file.iam_role_lambda_function_service_policy_template.rendered
+}
+
+#scheduler role
+resource "aws_iam_role" "scheduler_role" {
+  assume_role_policy = data.template_file.iam_assume_role_policy_scheduler_role.rendered
+  tags               = var.tags
+}
+
+
+resource "aws_iam_policy" "iam_role_scheduler_ec2_dynamodb_policy" {
+  policy = data.template_file.iam_role_scheduler_ec2_dynamodb_policy_template.rendered
+  name   = "iam_role_scheduler_ec2_dynamodb_policy"
+}
+
+resource "aws_iam_role_policy_attachment" "iam_role_scheduler_ec2_dynamodb_policy_attach" {
+  policy_arn = aws_iam_policy.iam_role_scheduler_ec2_dynamodb_policy.arn
+  role       = aws_iam_role.scheduler_role.name
+}
+
+#scheduler policy
+resource "aws_iam_policy" "iam_role_scheduler_policy" {
+  policy = data.template_file.iam_role_scheduler_policy_template.rendered
+  name   = "iam_role_scheduler_policy"
+}
+
 resource "aws_iam_role_policy_attachment" "iam_role_scheduler_policy_attach" {
   policy_arn = aws_iam_policy.iam_role_scheduler_policy.arn
   role       = aws_iam_role.scheduler_role.name
@@ -85,13 +93,6 @@ resource "aws_iam_role_policy_attachment" "iam_role_scheduler_policy_attach" {
 resource "aws_iam_policy" "iam_role_rds_scheduler_policy" {
   policy = data.template_file.iam_role_rds_scheduler_policy_template.rendered
   name   = "iam_role_rds_scheduler_policy"
-}
-
-data "template_file" "iam_role_rds_scheduler_policy_template" {
-  template = file("${path.module}/templates/rds_scheduler_policy.json")
-  vars = {
-    account_id = data.aws_caller_identity.current.account_id
-  }
 }
 
 resource "aws_iam_role_policy_attachment" "iam_role_rds_scheduler_policy_attach" {

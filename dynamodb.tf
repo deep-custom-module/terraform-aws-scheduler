@@ -25,8 +25,8 @@ locals {
 
 resource "aws_dynamodb_table" "state_table" {
   range_key = "account-region"
-  hash_key = "service"
-  name = "StateTable"
+  hash_key  = "service"
+  name      = "StateTable"
   point_in_time_recovery {
     enabled = true
   }
@@ -42,7 +42,7 @@ resource "aws_dynamodb_table" "state_table" {
   }
 
   server_side_encryption {
-    enabled = true
+    enabled     = true
     kms_key_arn = aws_kms_key.instance_scheduler_key.arn
   }
   tags = var.tags
@@ -145,7 +145,6 @@ resource "aws_dynamodb_table_item" "periods" {
 }
 PERIOD
 }
-
 
 #definition of schedules
 resource "aws_dynamodb_table_item" "schedules" {

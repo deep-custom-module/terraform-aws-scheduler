@@ -7,6 +7,7 @@ variable "name" {
 variable "tags" {
   type        = map(string)
   description = "A map of tags to assign to the object"
+  default     = {}
 }
 
 variable "timeouts" {
@@ -65,7 +66,7 @@ variable "started_tags" {
   description = "Comma separated list of tagname and values on the format name=value,name=value,.. that are set on started instances"
 }
 
-  variable "stopped_tags" {
+variable "stopped_tags" {
   type        = string
   default     = "auto=stop"
   description = "Comma separated list of tagname and values on the format name=value,name=value,.. that are set on stopped instances"

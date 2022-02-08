@@ -1,8 +1,5 @@
 locals {
   environment_map = local.variables == null ? [] : [local.variables]
-}
-
-locals {
   variables = {
     SCHEDULER_FREQUENCY    = var.scheduler_frequency
     TAG_NAME               = var.tag_name
@@ -49,7 +46,7 @@ resource "aws_lambda_function" "instance_scheduler_main" {
   tracing_config {
     mode = "Active"
   }
-  tags = var.tags
+  tags       = var.tags
   depends_on = [aws_iam_role.scheduler_role]
 }
 

@@ -9,3 +9,37 @@ output "caller_arn" {
 output "caller_user" {
   value = data.aws_caller_identity.current.user_id
 }
+
+output "state_table_id" {
+  value       = join("", aws_dynamodb_table.state_table.*.id)
+  description = "DynamoDB State table ID"
+}
+
+output "state_table_arn" {
+  value       = join("", aws_dynamodb_table.state_table.*.arn)
+  description = "DynamoDB State table ARN"
+}
+output "maintenance_table_id" {
+  value       = join("", aws_dynamodb_table.maintenance_table.*.id)
+  description = "DynamoDB maintenance table ID"
+}
+
+output "maintenance_table_arn" {
+  value       = join("", aws_dynamodb_table.maintenance_table.*.arn)
+  description = "DynamoDB maintenance table ARN"
+}
+
+output "config_table_id" {
+  value       = join("", aws_dynamodb_table.config_table.*.id)
+  description = "DynamoDB Config table ID"
+}
+
+output "config_table_arn" {
+  value       = join("", aws_dynamodb_table.config_table.*.arn)
+  description = "DynamoDB Config table ARN"
+}
+
+output "sns_topic_owner" {
+  description = "Owner of SNS topic"
+  value       = element(concat(aws_sns_topic.instance_scheduler_topic.*.owner, [""]), 0)
+}
