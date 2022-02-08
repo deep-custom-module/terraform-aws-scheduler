@@ -31,7 +31,7 @@ module "test" {
 
   # Required values
   source = "../"
-  tags = {
+  module_tags = {
     TerraformModuleGitRepo = var.terraform_module_git_repo
     TerraformModuleVersion = var.terraform_module_version
   }
