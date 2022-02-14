@@ -3,71 +3,26 @@
         {
             "PutRequest": {
                 "Item": {
-                    "UserId": {
-                        "S": "A"
+                    "type": {
+                        "S": "schedule"
                     },
-                    "Title": {
-                        "S": "Principal Engineer"
-                    }
-                }
-            }
-        },
-        {
-            "PutRequest": {
-                "Item": {
-                    "UserId": {
-                        "S": "E"
+                    "timezone": {
+                        "S": "Eurper/Warsaw"
                     },
-                    "Title": {
-                        "S": "Senior Engineer"
-                    }
-                }
-            }
-        },
-        {
-            "PutRequest": {
-                "Item": {
-                    "UserId": {
-                        "S": "I"
+                    "name": {
+                        "S": "test_schedule"
                     },
-                    "Title": {
-                        "S": "Mid Level Engineer"
-                    }
-                }
-            }
-        },
-        {
-            "PutRequest": {
-                "Item": {
-                    "UserId": {
-                        "S": "O"
+                    "description": {
+                        "S": "schedule for test"
                     },
-                    "Title": {
-                        "S": "Lead Engineer"
-                    }
-                }
-            }
-        },
-        {
-            "PutRequest": {
-                "Item": {
-                    "UserId": {
-                        "S": "U"
+                    "override_status": {
+                        "S": "false"
                     },
-                    "Title": {
-                        "S": "Associate Engineer"
-                    }
-                }
-            }
-        },
-        {
-            "PutRequest": {
-                "Item": {
-                    "UserId": {
-                        "S": "Y"
+                    "periods": {
+                        "S": "test_period"
                     },
-                    "Title": {
-                        "S": "Half-Present Intern"
+                    "use_metrics": {
+                        "S": "true"
                     }
                 }
             }
