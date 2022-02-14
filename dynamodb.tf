@@ -73,7 +73,7 @@ resource "aws_dynamodb_table" "config_table" {
   tags = var.tags
 
   provisioner "local-exec" {
-    command = "aws dynamodb batch-write-item --request-items file://items.json --region ${data.terraform_remote_state.app-baseline.outputs.region}"
+    command = "aws dynamodb batch-write-item --request-items file://items.json --region ${data.aws_region.current.name}"
   }
 }
 
