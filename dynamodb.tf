@@ -73,14 +73,22 @@ resource "aws_dynamodb_table" "config_table" {
   tags = var.tags
 
   provisioner "local-exec" {
-    command = <<EOT
-    aws dynamodb batch-write-item --request-items file://periods.json --region ${data.aws_region.current.name};
-    aws dynamodb batch-write-item --request-items file://mon-7am-fri-8pm.json --region ${data.aws_region.current.name};
-    aws dynamodb batch-write-item --request-items file://mon-9am-fri-5pm.json --region ${data.aws_region.current.name};
-    aws dynamodb batch-write-item --request-items file://mon-fri-all-day.json --region ${data.aws_region.current.name};
-    aws dynamodb batch-write-item --request-items file://sat-9am-sun-8pm.json --region ${data.aws_region.current.name};
-    aws dynamodb batch-write-item --request-items file://sat-sun-all-day.json --region ${data.aws_region.current.name};
-    EOT
+    command = "aws dynamodb batch-write-item --request-items file://periods.json --region ${data.aws_region.current.name}"
+  }
+  provisioner "local-exec" {
+    command = "aws dynamodb batch-write-item --request-items file://mon-7am-fri-8pm.json --region ${data.aws_region.current.name}"
+  }
+  provisioner "local-exec" {
+    command = "aws dynamodb batch-write-item --request-items file://mon-9am-fri-5pm.json --region ${data.aws_region.current.name}"
+  }
+  provisioner "local-exec" {
+    command = "aws dynamodb batch-write-item --request-items file://mon-fri-all-day.json --region ${data.aws_region.current.name}"
+  }
+  provisioner "local-exec" {
+    command = "aws dynamodb batch-write-item --request-items file://sat-9am-sun-8pm.json --region ${data.aws_region.current.name}"
+  }
+  provisioner "local-exec" {
+    command = "aws dynamodb batch-write-item --request-items file://sat-sun-all-day.json --region ${data.aws_region.current.name}"
   }
 }
 
