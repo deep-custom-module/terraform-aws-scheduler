@@ -1,5 +1,5 @@
 {
-    "instance-scheduler-ConfigTable-16ALRZVZ4DW72": [
+    "ConfigTable": [
         {
             "PutRequest": {
                 "Item": {
