@@ -1,0 +1,24 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "rds:DeleteDBSnapshot",
+        "rds:DescribeDBSnapshots",
+        "rds:StopDBInstance"
+      ],
+      "Resource": "arn:aws:rds:*:${account_id}:snapshot:*",
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "rds:AddTagsToResource",
+        "rds:RemoveTagsFromResource",
+        "rds:StartDBCluster",
+        "rds:StopDBCluster"
+      ],
+      "Resource": "arn:aws:rds:*:${account_id}:cluster:*",
+      "Effect": "Allow"
+    }
+  ]
+}

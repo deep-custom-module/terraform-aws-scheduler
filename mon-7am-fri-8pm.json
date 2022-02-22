@@ -1,0 +1,579 @@
+{
+    "ConfigTable": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "US/Pacific"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-pacific"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for US/Pacific"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "US/Arizona"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-arizona"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for US/Arizona"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "America/Mexico_City"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-mexico-city"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for America/Mexico_City"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "US/Central"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-central"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for US/Central"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "America/Bogota"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-bogota"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for America/Bogota"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "America/Caracas"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-caracas"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for America/Caracas"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "America/La_Paz"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-la-paz"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for America/La_Paz"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "America/Buenos_Aires"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-buenos-aires"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for America/Buenos_Aires"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Atlantic/Azores"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-azores"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Atlantic/Azores"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Europe/London"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-london"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Europe/London"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Europe/Athens"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-athens"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Europe/Athens"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Europe/Moscow"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-moscow"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Europe/Moscow"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Tehran"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-tehran"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Tehran"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Kabul"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-kabul"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Kabul"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Karachi"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-karachi"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Karachi"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Kolkata"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-kolkata"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Kolkata"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Yekaterinburg"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-yekaterinburg"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Yekaterinburg"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Jakarta"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-jakarta"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Jakarta"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Manila"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-manila"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Manila"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Pyongyang"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-pyongyang"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Pyongyang"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Hong_Kong"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-hong-kong"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Hong_Kong"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Tokyo"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-tokyo"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Tokyo"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Australia/Adelaide"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-adelaide"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Australia/Adelaide"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Yakutsk"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-yakutsk"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Yakutsk"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "type": {
+                        "S": "schedule"
+                    },
+                    "timezone": {
+                        "S": "Asia/Vladivostok"
+                    },
+                    "name": {
+                        "S": "mon-7am-fri-8pm-vladivostok"
+                    },
+                    "description": {
+                        "S": "Working hours from 7-20 for Asia/Vladivostok"
+                    },
+                    "periods": {
+                        "SS": [
+                            "office-hours"
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}

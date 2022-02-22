@@ -1,0 +1,57 @@
+{
+  "ConfigTable": [
+    {
+      "PutRequest": {
+        "Item": {
+          "type": {
+            "S": "period"
+          },
+          "begintime": {
+            "S": "07:00"
+          },
+          "endtime": {
+            "S": "20:00"
+          },
+          "name": {
+            "S": "elastic-working-hours"
+          },
+          "description": {
+            "S": "Elastic working hours from 7-20"
+          },
+          "weekdays": {
+            "SS": [
+              "mon-fri"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "type": {
+            "S": "period"
+          },
+          "begintime": {
+            "S": "07:00"
+          },
+          "endtime": {
+            "S": "20:00"
+          },
+          "name": {
+            "S": "weekend-elastic-working-hours"
+          },
+          "description": {
+            "S": "Elastic hours at weekends from 7-20"
+          },
+          "weekdays": {
+            "SS": [
+              "sat-sun"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
+
