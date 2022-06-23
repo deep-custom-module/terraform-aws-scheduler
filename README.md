@@ -1,8 +1,5 @@
 #Scheduler Configuration table
 
-
-> this is only part of the documentation, full documentation you can find here: https://wiki.app.pconnect.biz/pages/viewpage.action?spaceKey=DEEP&title=CET+-+Scheduler
-
 When deployed, the AWS Instance Scheduler creates an Amazon DynamoDB table that contains global configuration settings. To modify these global configuration settings after the solution is deployed via terraform, update the terraform file. Do not modify these values in the DynamoDB table. If you modify the values in the DynamoDB table, you will create a conflict between the stored parameters in the state and the values in the table.
 
 Global configuration items contain a type attribute with a value of config in the configuration table. Schedules and periods contain type attributes with values of schedule and period, respectively. You can add, update, or remove schedules and periods by adding proper maps as the argument in terraform file
