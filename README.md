@@ -17,9 +17,6 @@ Inputs to module
 | scheduler_frequency | Scheduler running frequency in minutes. | string | 5 | no
 | enable_cloudwatch | Enable logging of detailed information in CloudWatch logs. | bool | false | no
 | enable_ssm_maintenance_windows | Enable the solution to load SSM Maintenance Windows, so that they can be used for EC2 instance Scheduling.| bool | false | no
-| started_tags | Comma separated list of tagname and values on the formt name=value,name=value,.. that are set on started instances | string | auto=start | no
-| stopped_tags | Comma separated list of tagname and values on the formt name=value,name=value,.. that are set on stopped instances | string | auto=stop | no
-| create_rds_snapshot | Create snapshot before stopping RDS instances (does not apply to Aurora Clusters). | bool | false | no
 | schedule_clusters | Enable scheduling of Aurora clusters for RDS Service. | bool | false | no
 | memory_size | Size of the Lambda function running the scheduler, increase size when processing large numbers of instances. | number | 128 | no
 | log_retention | Retention days for scheduler logs. | number | 30 | no

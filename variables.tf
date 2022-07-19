@@ -60,24 +60,6 @@ variable "enable_ssm_maintenance_windows" {
   default     = false
 }
 
-variable "started_tags" {
-  type        = string
-  default     = "auto=start"
-  description = "Comma separated list of tagname and values on the format name=value,name=value,.. that are set on started instances"
-}
-
-variable "stopped_tags" {
-  type        = string
-  default     = "auto=stop"
-  description = "Comma separated list of tagname and values on the format name=value,name=value,.. that are set on stopped instances"
-}
-
-variable "create_rds_snapshot" {
-  type        = bool
-  description = "Create snapshot before stopping RDS instances (does not apply to Aurora Clusters)."
-  default     = false
-}
-
 variable "default_timezone" {
   description = "Choose the default Time Zone. Default is 'UTC'."
   type        = string
