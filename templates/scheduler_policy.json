@@ -67,6 +67,7 @@
         "ec2:StartInstances",
         "ec2:StopInstances",
         "ec2:CreateTags",
+        "kms:CreateGrant",
         "ec2:DeleteTags"
       ],
       "Resource": "arn:aws:ec2:*:${account_id}:instance/*",
@@ -85,7 +86,8 @@
     {
       "Action": [
         "kms:GenerateDataKey*",
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "kms:CreateGrant"
       ],
       "Resource": "${kms_key_arn}",
       "Effect": "Allow"
