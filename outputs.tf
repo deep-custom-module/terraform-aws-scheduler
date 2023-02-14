@@ -38,8 +38,3 @@ output "config_table_arn" {
   value       = join("", aws_dynamodb_table.config_table.*.arn)
   description = "DynamoDB Config table ARN"
 }
-
-output "sns_topic_owner" {
-  description = "Owner of SNS topic"
-  value       = element(concat(aws_sns_topic.instance_scheduler_topic.*.owner, [""]), 0)
-}

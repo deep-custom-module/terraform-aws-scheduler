@@ -6,15 +6,10 @@ data "template_file" "kms_key_policy" {
   }
 }
 
-resource "aws_kms_key" "instance_scheduler_key" {
-  description         = "Key for SNS"
-  policy              = data.template_file.kms_key_policy.rendered
-  is_enabled          = true
-  enable_key_rotation = true
-  tags                = var.tags
-}
-
-resource "aws_kms_alias" "instance_scheduler_alias" {
-  target_key_id = aws_kms_key.instance_scheduler_key.arn
-  name          = "alias/${var.name}-instance-scheduler-encryption-key"
+module "kms" {
+  source  = "ptfe-crx5x8zy.deeptpe.pmicloud.xyz/core-prd/kms/aws"
+  version = "1.0.1"
+  custom_policy = data.template_file.kms_key_policy.rendered
+  tags = var.tags
+  alias = "${var.name}-instance-scheduler-encryption-key"
 }

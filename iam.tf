@@ -35,9 +35,9 @@ data "template_file" "iam_role_scheduler_policy_template" {
     dynamodb_state_table_arn       = aws_dynamodb_table.state_table.arn
     account_id                     = data.aws_caller_identity.current.account_id
     name                           = var.name
-    sns_topic_arn                  = aws_sns_topic.instance_scheduler_topic.arn
-    kms_key_arn                    = aws_kms_key.instance_scheduler_key.arn
-    lambda_arn                     = aws_lambda_function.instance_scheduler_main.arn
+    sns_topic_arn                  = module.sns.sns_topic_arn
+    kms_key_arn                    = module.kms.key_arn
+    lambda_arn                     = module.lambda.function_arn
   }
 }
 

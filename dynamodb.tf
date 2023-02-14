@@ -112,7 +112,7 @@ resource "aws_dynamodb_table" "maintenance_table" {
 
   server_side_encryption {
     enabled     = true
-    kms_key_arn = aws_kms_key.instance_scheduler_key.arn
+    kms_key_arn = module.kms.key_arn
   }
   tags = var.tags
 }

@@ -72,6 +72,15 @@ variable "schedule_clusters" {
   default     = false
 }
 
+variable "email_subscriber_sns" {
+  description = "warning and error messages will be delivered on the e-mail"
+  type = map(string)
+}
+
+variable "deploy_sns_topic" {
+  description = "flag which describe if SNS topic should be deployed or not"
+}
+
 variable "periods" {
   default = {}
 }

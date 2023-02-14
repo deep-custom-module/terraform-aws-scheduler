@@ -12,6 +12,6 @@ resource "aws_cloudwatch_event_rule" "scheduler_frequency_role" {
 }
 
 resource "aws_cloudwatch_event_target" "scheduler_frequency_event_target" {
-  arn  = aws_lambda_function.instance_scheduler_main.arn
+  arn  = module.lambda.function_arn
   rule = aws_cloudwatch_event_rule.scheduler_frequency_role.name
 }
